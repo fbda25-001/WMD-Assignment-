@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Emperitus Academy's academic programmes - PSLE, JCE, BGCSE, IGCSE, Rewrite Programmes, Breakthrough, and Primary Tuition. Find the right programme for your child.">
+    <meta name="keywords" content="programmes, PSLE, JCE, BGCSE, IGCSE, rewrite programmes, breakthrough, primary tuition, Emperitus Academy">
+    <meta name="author" content="Emperitus Academy">
+    <title>Programmes | Emperitus Academy - Academic Support for Every Level</title>
+    
+     <!--Favicon-->
+    <link rel="shortcut icon" href="img/emperitus_Logo.png" type="image/x-icon">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External CSS (No Bootstrap) -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* Additional page-specific styles for Programmes page */
+        
+        /* Programme Card Styles */
+        .programme-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+        
+        .programme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .programme-header {
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            padding: 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .programme-header i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .programme-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .programme-level {
+            display: inline-block;
+            background: var(--accent);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .programme-body {
+            padding: 1.5rem;
+        }
+        
+        .programme-subjects {
+            margin-bottom: 1rem;
+        }
+        
+        .programme-subjects h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .programme-subjects ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .programme-subjects ul li {
+            color: var(--gray);
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .programme-subjects ul li i {
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+        
+        .programme-duration {
+            background: var(--primary-light);
+            padding: 0.75rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .programme-duration i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        
+        .programme-duration span {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .programme-fee {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .programme-fee span {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: var(--gray);
+        }
+        
+        .btn-programme {
+            display: block;
+            text-align: center;
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-programme:hover {
+            background: #e07a1a;
+            transform: translateY(-2px);
+        }
+        
+        /* Timetable Section */
+        .timetable-section {
+            background: var(--primary-light);
+        }
+        
+        .timetable-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow-x: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .timetable-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        .timetable-table th,
+        .timetable-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timetable-table th {
+            background: var(--primary-dark);
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .timetable-table td {
+            color: var(--gray);
+        }
+        
+        .timetable-table tr:hover td {
+            background: var(--primary-light);
+        }
+        
+        .day-column {
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: #f8f9fa;
+        }
+        
+        /* Teaching Approach Section */
+        .approach-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .approach-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .approach-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .approach-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .approach-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .approach-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Programme Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Pure CSS) -->
+<nav class="navbar">
+    <div class="container">
+        <img src="img/emperitus_Logo.png" alt="" height="100">
+        <button class="navbar-toggler" id="navbarToggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link active" href="programmes.html">Programmes</a></li>
+                <li class="nav-item"><a class="nav-link" href="fees.html">Fees & Registration</a></li>
+                <li class="nav-item"><a class="nav-link" href="branches.html">Branches</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Our Academic Programmes</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Programmes</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Programmes Introduction -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Programmes For Every Level</h2>
+            <p>Emperitus Academy offers comprehensive academic support for students at all educational stages</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="story-content text-center" style="max-width: 800px; margin: 0 auto;">
+                    <p>Whether your child needs help with primary school subjects, preparation for national examinations, or a second chance to improve their results, Emperitus Academy has a programme designed for their success. Our proven teaching methods and experienced tutors ensure every student reaches their full potential.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programmes Grid Section - Based on Documentation -->
+<section class="py-5" style="background-color: var(--primary-light);">
+    <div class="container">
+        <div class="row">
+            <!-- PSLE Support Programme -->
+            <div class="col-lg-4 col-md-6">
+                <div class="programme-card">
+                    <div class="programme-header">
+                        <i class="fas fa-book"></i>
+                        <h3>PSLE Support</h3>
+                        <span class="programme-level">Primary School</span>
+                    </div>
+                    <div class="programme-body">
+                        <div class="programme-subjects">
+                            <h4>Subjects Offered:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mathematics</li>
+                                <li><i class="fas fa-check-circle"></i> English</li>
+                                <li><i class="fas fa-check-circle"></i> Science</li>
+                                <li><i class="fas fa-check-circle"></i> Social Studies</li>
+                                <li><i class="fas fa-check-circle"></i> Setswana</li>
+                            </ul>
+                        </div>
+                        <div class="programme-duration">
+                            <i class="fas fa-calendar-alt"></i> Duration: <span>6 Months (Full Academic Year)</span>
+                        </div>
+                        <div class="programme-fee">
+                            P850 <span>/ month</span>
+                        </div>
+                        <a href="fees.html" class="btn-programme">Enrol Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- JCE Support Programme -->
+            <div class="col-lg-4 col-md-6">
+                <div class="programme-card">
+                    <div class="programme-header">
+                        <i class="fas fa-calculator"></i>
+                        <h3>JCE Support</h3>
+                        <span class="programme-level">Junior Secondary</span>
+                    </div>
+                    <div class="programme-body">
+                        <div class="programme-subjects">
+                            <h4>Subjects Offered:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mathematics</li>
+                                <li><i class="fas fa-check-circle"></i> English</li>
+                                <li><i class="fas fa-check-circle"></i> Science (Combined)</li>
+                                <li><i class="fas fa-check-circle"></i> Geography</li>
+                                <li><i class="fas fa-check-circle"></i> History</li>
+                                <li><i class="fas fa-check-circle"></i> Setswana</li>
+                            </ul>
+                        </div>
+                        <div class="programme-duration">
+                            <i class="fas fa-calendar-alt"></i> Duration: <span>8 Months (Full Academic Year)</span>
+                        </div>
+                        <div class="programme-fee">
+                            P950 <span>/ month</span>
+                        </div>
+                        <a href="fees.html" class="btn-programme">Enrol Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BGCSE / IGCSE Programme -->
+            <div class="col-lg-4 col-md-6">
+                <div class="programme-card">
+                    <div class="programme-header">
+                        <i class="fas fa-flask"></i>
+                        <h3>BGCSE / IGCSE</h3>
+                        <span class="programme-level">Senior Secondary</span>
+                    </div>
+                    <div class="programme-body">
+                        <div class="programme-subjects">
+                            <h4>Subjects Offered:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mathematics (Core & Extended)</li>
+                                <li><i class="fas fa-check-circle"></i> English Language</li>
+                                <li><i class="fas fa-check-circle"></i> Physics, Chemistry, Biology</li>
+                                <li><i class="fas fa-check-circle"></i> Accounting, Business Studies</li>
+                                <li><i class="fas fa-check-circle"></i> Computer Science</li>
+                            </ul>
+                        </div>
+                        <div class="programme-duration">
+                            <i class="fas fa-calendar-alt"></i> Duration: <span>10 Months (Full Academic Year)</span>
+                        </div>
+                        <div class="programme-fee">
+                            P1,100 <span>/ month</span>
+                        </div>
+                        <a href="fees.html" class="btn-programme">Enrol Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rewrite Programmes -->
+            <div class="col-lg-4 col-md-6">
+                <div class="programme-card">
+                    <div class="programme-header">
+                        <i class="fas fa-redo-alt"></i>
+                        <h3>Rewrite Programmes</h3>
+                        <span class="programme-level">Second Chance</span>
+                    </div>
+                    <div class="programme-body">
+                        <div class="programme-subjects">
+                            <h4>For students who want to improve:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> JCE Rewrite Preparation</li>
+                                <li><i class="fas fa-check-circle"></i> BGCSE Rewrite Preparation</li>
+                                <li><i class="fas fa-check-circle"></i> IGCSE Rewrite Preparation</li>
+                                <li><i class="fas fa-check-circle"></i> Subject-specific improvement</li>
+                            </ul>
+                        </div>
+                        <div class="programme-duration">
+                            <i class="fas fa-calendar-alt"></i> Duration: <span>6-8 Months (Intensive)</span>
+                        </div>
+                        <div class="programme-fee">
+                            P1,000 <span>/ month</span>
+                        </div>
+                        <a href="fees.html" class="btn-programme">Enrol Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Breakthrough Programme -->
+            <div class="col-lg-4 col-md-6">
+                <div class="programme-card">
+                    <div class="programme-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Breakthrough Programme</h3>
+                        <span class="programme-level">Intensive Support</span>
+                    </div>
+                    <div class="programme-body">
+                        <div class="programme-subjects">
+                            <h4>For struggling learners:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> One-on-one intensive tutoring</li>
+                                <li><i class="fas fa-check-circle"></i> Custom learning plan</li>
+                                <li><i class="fas fa-check-circle"></i> Foundation building</li>
+                                <li><i class="fas fa-check-circle"></i> Confidence boosting</li>
+                            </ul>
+                        </div>
+                        <div class="programme-duration">
+                            <i class="fas fa-calendar-alt"></i> Duration: <span>3-6 Months (Personalized)</span>
+                        </div>
+                        <div class="programme-fee">
+                            P1,500 <span>/ month</span>
+                        </div>
+                        <a href="fees.html" class="btn-programme">Enrol Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Primary Tuition -->
+            <div class="col-lg-4 col-md-6">
+                <div class="programme-card">
+                    <div class="programme-header">
+                        <i class="fas fa-child"></i>
+                        <h3>Primary Tuition</h3>
+                        <span class="programme-level">Standards 1-7</span>
+                    </div>
+                    <div class="programme-body">
+                        <div class="programme-subjects">
+                            <h4>Core Subjects:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Literacy (Reading & Writing)</li>
+                                <li><i class="fas fa-check-circle"></i> Numeracy (Mathematics)</li>
+                                <li><i class="fas fa-check-circle"></i> Science & Environment</li>
+                                <li><i class="fas fa-check-circle"></i> Homework Assistance</li>
+                            </ul>
+                        </div>
+                        <div class="programme-duration">
+                            <i class="fas fa-calendar-alt"></i> Duration: <span>Full Academic Year</span>
+                        </div>
+                        <div class="programme-fee">
+                            P650 <span>/ month</span>
+                        </div>
+                        <a href="fees.html" class="btn-programme">Enrol Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Class Timetable Section (Based on Documentation) -->
+<section class="timetable-section py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Class Timetable</h2>
+            <p>Flexible scheduling to accommodate your busy lifestyle</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="timetable-card">
+                    <table class="timetable-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Morning (9:00 - 12:00)</th>
+                                <th>Afternoon (14:00 - 17:00)</th>
+                                <th>Evening (18:00 - 20:00)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="day-column">Monday</td>
+                                <td>PSLE - Mathematics</td>
+                                <td>JCE - Sciences</td>
+                                <td>BGCSE - Mathematics</td>
+                            </tr>
+                            <tr>
+                                <td class="day-column">Tuesday</td>
+                                <td>PSLE - English</td>
+                                <td>JCE - Mathematics</td>
+                                <td>BGCSE - English</td>
+                            </tr>
+                            <tr>
+                                <td class="day-column">Wednesday</td>
+                                <td>Primary Tuition</td>
+                                <td>Rewrite Programme</td>
+                                <td>BGCSE - Sciences</td>
+                            </tr>
+                            <tr>
+                                <td class="day-column">Thursday</td>
+                                <td>PSLE - Science</td>
+                                <td>JCE - English</td>
+                                <td>Breakthrough Programme</td>
+                            </tr>
+                            <tr>
+                                <td class="day-column">Friday</td>
+                                <td>Primary Tuition</td>
+                                <td>IGCSE Support</td>
+                                <td>Exam Preparation</td>
+                            </tr>
+                            <tr>
+                                <td class="day-column">Saturday</td>
+                                <td colspan="3">Weekend Intensive Classes (9:00 - 15:00) - All Programmes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Teaching Approach Section (Based on Documentation) -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Teaching Approach</h2>
+            <p>How we ensure every student succeeds</p>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h4>Personalized Learning</h4>
+                    <p>Each student receives an individualized learning plan tailored to their strengths and areas for improvement.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <h4>Interactive Lessons</h4>
+                    <p>Engaging, hands-on lessons that make learning enjoyable and memorable for every student.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>Regular Assessments</h4>
+                    <p>Weekly tests, monthly exams, and progress reports to track improvement and identify areas needing attention.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-pastafarianism"></i>
+                    </div>
+                    <h4>Past Paper Practice</h4>
+                    <p>Extensive practice with past examination papers to build confidence and exam technique.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programme Comparison / Summary -->
+<section class="py-5" style="background-color: var(--primary-light);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h2 class="section-title" style="margin-bottom: 1.5rem;">Not Sure Which Programme Fits?</h2>
+                <p>Our academic advisors are here to help you choose the right programme for your child's needs. We offer free consultations to assess your child's current level and recommend the most suitable path forward.</p>
+                <p><strong>What to expect during consultation:</strong></p>
+                <ul style="color: var(--gray); margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Academic assessment to identify strengths and gaps</li>
+                    <li>Discussion of goals and expectations</li>
+                    <li>Recommendation of appropriate programme</li>
+                    <li>Customized learning plan outline</li>
+                </ul>
+                <a href="contact.html" class="btn btn-accent">Book Free Consultation <i class="fas fa-calendar-alt"></i></a>
+            </div>
+            <div class="col-lg-5">
+                <div class="story-image">
+                    <img src="https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?w=500&h=350&fit=crop" alt="Academic consultation">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" style="margin: 0 auto; text-align: center;">
+                <h2>Ready to Enroll Your Child?</h2>
+                <p>Join hundreds of successful students who have transformed their academic performance with Emperitus Academy.</p>
+                <a href="fees.html" class="btn btn-accent btn-lg">View Fees & Register <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <img src="img/emperitus_Logo.png" alt="" height="20%">
+                <p>Ever Learning, Ever Growing. Empowering Botswana's students through quality education and personalized tutoring services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programmes.html">Programmes</a></li>
+                    <li><a href="fees.html">Fees & Registration</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Our Programmes</h4>
+                <ul>
+                    <li><a href="programmes.html">PSLE Support</a></li>
+                    <li><a href="programmes.html">JCE Support</a></li>
+                    <li><a href="programmes.html">BGCSE / IGCSE</a></li>
+                    <li><a href="programmes.html">Rewrite Programmes</a></li>
+                    <li><a href="programmes.html">Breakthrough Programme</a></li>
+                    <li><a href="programmes.html">Primary Tuition</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Plot 123, Gaborone, Botswana</li>
+                    <li><i class="fas fa-phone"></i> +267 123 4567</li>
+                    <li><i class="fab fa-whatsapp"></i> +267 765 4321</li>
+                    <li><i class="fas fa-envelope"></i> info@emperitus.ac.bw</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Emperitus Academy. Ever Learning, Ever Growing. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- JavaScript for Mobile Menu & Back to Top -->
+<script>
+    // Mobile navigation toggle
+    const toggler = document.getElementById('navbarToggler');
+    const navCollapse = document.getElementById('navbarNav');
+    if (toggler && navCollapse) {
+        toggler.addEventListener('click', () => {
+            navCollapse.classList.toggle('show');
+        });
+    }
+    
+    // Back to top button
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backBtn.classList.add('show');
+        } else {
+            backBtn.classList.remove('show');
+        }
+    });
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet our expert tutors at Excel Tutors. Qualified, passionate educators dedicated to helping students excel in Mathematics, Sciences, English, and more.">
+    <meta name="keywords" content="tutors, expert tutors, mathematics tutor, science tutor, English tutor, Excel Tutors, Botswana">
+    <meta name="author" content="Excel Tutors">
+    <title>Our Tutors | Excel Tutors - Meet Our Expert Educators</title>
+    
+     <!--Favicon-->
+    <link rel="shortcut icon" href="img/Imperial Logo.png" type="image/x-icon">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ----- GLOBAL STYLES (Matches all pages) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary: #4A90E2;
+            --primary-dark: #357ABD;
+            --secondary: #F5A623;
+            --dark: #2C3E50;
+            --light: #F8F9FA;
+            --success: #27AE60;
+            --danger: #E74C3C;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 576px) { .container { max-width: 540px; } }
+        @media (min-width: 768px) { .container { max-width: 720px; } }
+        @media (min-width: 992px) { .container { max-width: 960px; } }
+        @media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+        /* Grid System */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col, .col-lg-6, .col-md-4, .col-md-6, .col-lg-4, .col-lg-3, .col-md-3, .col-sm-6 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col { flex: 1 0 0%; }
+        
+        @media (min-width: 768px) {
+            .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+            .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+            .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+        }
+        
+        @media (min-width: 992px) {
+            .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+            .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+            .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+        }
+        
+        @media (min-width: 576px) {
+            .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 2px solid transparent;
+            padding: 12px 30px;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--white);
+            border-color: var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background-color: #e09512;
+            border-color: #e09512;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-primary {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: var(--dark);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .navbar-brand i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            display: block;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler { display: block; }
+            .navbar-collapse { display: none; width: 100%; }
+            .navbar-collapse.show { display: block; }
+            .navbar-nav { flex-direction: column; text-align: center; padding: 1rem 0; }
+            .nav-item { margin: 0.5rem 0; }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 120px 0 60px;
+            color: var(--white);
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--secondary);
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "/";
+            padding: 0 0.5rem;
+            color: var(--white);
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* Tutors Grid Section */
+        .tutors-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .tutor-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+        
+        .tutor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .tutor-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tutor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .tutor-card:hover .tutor-image img {
+            transform: scale(1.05);
+        }
+        
+        .tutor-placeholder {
+            font-size: 5rem;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tutor-placeholder i {
+            font-size: 4rem;
+        }
+        
+        .tutor-placeholder span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .tutor-social {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tutor-card:hover .tutor-social {
+            opacity: 1;
+        }
+        
+        .tutor-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .tutor-social a:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .tutor-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .tutor-info h3 {
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+            font-size: 1.3rem;
+        }
+        
+        .tutor-subject {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tutor-qualification {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tutor-bio {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .tutor-rating {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tutor-rating i {
+            margin: 0 1px;
+        }
+        
+        .tutor-rating span {
+            color: #666;
+            margin-left: 0.5rem;
+        }
+        
+        /* Tutor Highlight Section */
+        .tutor-highlight {
+            background: linear-gradient(135deg, var(--light), #e9ecef);
+            padding: 80px 0;
+        }
+        
+        .highlight-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .highlight-image {
+            flex: 1;
+            min-width: 280px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .highlight-image .placeholder-icon {
+            font-size: 8rem;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+        }
+        
+        .highlight-content {
+            flex: 2;
+            padding: 2rem;
+        }
+        
+        .highlight-content h3 {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-badge {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-badge {
+            text-align: center;
+        }
+        
+        .stat-badge .number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .stat-badge .label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .highlight-card {
+                flex-direction: column;
+            }
+            .highlight-content h3 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Why Our Tutors Section */
+        .why-tutors {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon i {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .feature-box h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-box p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-light {
+            background-color: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
+        
+        .btn-light:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+            border-color: var(--secondary);
+        }
+
+        /* Footer */
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Color Variables - Match your existing theme */
+        :root {
+            --primary: #4A90E2;
+            --primary-dark: #357ABD;
+            --secondary: #F5A623;
+            --dark: #2C3E50;
+            --white: #ffffff;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 576px) { .container { max-width: 540px; } }
+        @media (min-width: 768px) { .container { max-width: 720px; } }
+        @media (min-width: 992px) { .container { max-width: 960px; } }
+        @media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+        /* Grid System */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-lg-4, .col-lg-2, .col-lg-3, .col-md-6 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+        }
+
+        @media (min-width: 992px) {
+            .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+            .col-lg-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+            .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+        }
+
+        /* ===== FOOTER SPECIFIC STYLES ===== */
+        footer {
+            background: #1a252f;
+            color: var(--white);
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        footer p {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        footer h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        footer ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #aaa;
+        }
+
+        .contact-info li i {
+            width: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            footer {
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            footer h4 {
+                text-align: center;
+                margin-top: 1.5rem;
+            }
+            footer ul {
+                text-align: center;
+            }
+            .contact-info li {
+                justify-content: center;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top.show {
+            display: flex;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .cta h2 { font-size: 1.8rem; }
+            .social-links { justify-content: center; }
+            footer h4 { text-align: center; }
+            footer ul { text-align: center; }
+            .contact-info li { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (consistent with all pages) -->
+<nav class="navbar">
+    <div class="container">
+        <img src="img/Imperial Logo.png" height="100">
+        <button class="navbar-toggler" id="navbarToggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link active" href="tutors.html">Our Tutors</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Our Expert Tutors</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Our Tutors</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Tutors Grid Section -->
+<section class="tutors-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Meet Our Dedicated Educators</h2>
+            <p>Passionate, qualified, and committed to your success</p>
+        </div>
+        <div class="row">
+            <!-- Tutor 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="tutor-card">
+                    <div class="tutor-image">
+                        <div class="tutor-placeholder">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Dr. Sarah Motswana</span>
+                        </div>
+                        <div class="tutor-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="tutor-info">
+                        <h3>Dr. Sarah Motswana</h3>
+                        <div class="tutor-subject">Mathematics & Statistics</div>
+                        <div class="tutor-qualification">PhD in Mathematics Education</div>
+                        <div class="tutor-bio">15+ years of experience. Specializes in making complex mathematical concepts simple and engaging for all levels.</div>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(127 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tutor 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="tutor-card">
+                    <div class="tutor-image">
+                        <div class="tutor-placeholder">
+                            <i class="fas fa-flask"></i>
+                            <span>Mr. Thabo Nkosi</span>
+                        </div>
+                        <div class="tutor-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="tutor-info">
+                        <h3>Mr. Thabo Nkosi</h3>
+                        <div class="tutor-subject">Physical Sciences</div>
+                        <div class="tutor-qualification">MSc in Physics</div>
+                        <div class="tutor-bio">Award-winning science educator with a passion for interactive experiments and real-world applications.</div>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(98 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tutor 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="tutor-card">
+                    <div class="tutor-image">
+                        <div class="tutor-placeholder">
+                            <i class="fas fa-book"></i>
+                            <span>Ms. Keitumetse Modise</span>
+                        </div>
+                        <div class="tutor-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="tutor-info">
+                        <h3>Ms. Keitumetse Modise</h3>
+                        <div class="tutor-subject">English & Literature</div>
+                        <div class="tutor-qualification">MA in English Studies</div>
+                        <div class="tutor-bio">Expert in academic writing, literature analysis, and ESL. Creates a supportive environment for language mastery.</div>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(112 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tutor 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="tutor-card">
+                    <div class="tutor-image">
+                        <div class="tutor-placeholder">
+                            <i class="fas fa-code"></i>
+                            <span>Mr. Oaitse Ramokate</span>
+                        </div>
+                        <div class="tutor-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="tutor-info">
+                        <h3>Mr. Oaitse Ramokate</h3>
+                        <div class="tutor-subject">Computer Science & IT</div>
+                        <div class="tutor-qualification">BSc in Software Engineering</div>
+                        <div class="tutor-bio">Full-stack developer and programming tutor. Teaches Python, JavaScript, Web Dev, and Database concepts.</div>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(84 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tutor 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="tutor-card">
+                    <div class="tutor-image">
+                        <div class="tutor-placeholder">
+                            <i class="fas fa-dna"></i>
+                            <span>Dr. Grace Mbeki</span>
+                        </div>
+                        <div class="tutor-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="tutor-info">
+                        <h3>Dr. Grace Mbeki</h3>
+                        <div class="tutor-subject">Biology & Life Sciences</div>
+                        <div class="tutor-qualification">PhD in Molecular Biology</div>
+                        <div class="tutor-bio">Former university lecturer with a gift for simplifying complex biological processes and exam preparation.</div>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(76 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tutor 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="tutor-card">
+                    <div class="tutor-image">
+                        <div class="tutor-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Ms. Boitumelo Raditladi</span>
+                        </div>
+                        <div class="tutor-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="tutor-info">
+                        <h3>Ms. Boitumelo Raditladi</h3>
+                        <div class="tutor-subject">Business & Economics</div>
+                        <div class="tutor-qualification">MBA, Finance</div>
+                        <div class="tutor-bio">Industry professional turned tutor. Makes business concepts relevant through case studies and practical examples.</div>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(65 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tutor Highlight / Featured Tutor -->
+<section class="tutor-highlight">
+    <div class="container">
+        <div class="section-header">
+            <h2>Tutor of the Month</h2>
+            <p>Exceptional dedication to student success</p>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image">
+                <div class="placeholder-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p style="font-size: 1rem; margin-top: 1rem;">Mr. Thabo Nkosi</p>
+                </div>
+            </div>
+            <div class="highlight-content">
+                <span class="highlight-badge">⭐ Featured Educator</span>
+                <h3>Mr. Thabo Nkosi</h3>
+                <p class="tutor-qualification" style="color: var(--primary);">MSc in Physics | 12 years experience</p>
+                <p>"My teaching philosophy is simple: every student can excel when given the right tools and encouragement. I focus on building confidence first, then mastering the material."</p>
+                <div class="stats-badge">
+                    <div class="stat-badge"><div class="number">98%</div><div class="label">Student Success</div></div>
+                    <div class="stat-badge"><div class="number">500+</div><div class="label">Students Taught</div></div>
+                    <div class="stat-badge"><div class="number">15</div><div class="label">Awards</div></div>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Book a Session with Thabo</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Our Tutors -->
+<section class="why-tutors">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose Our Tutors?</h2>
+            <p>Quality education starts with exceptional educators</p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Highly Qualified</h4>
+                    <p>All tutors hold advanced degrees and subject-matter expertise.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Passionate Educators</h4>
+                    <p>Genuine love for teaching and student development.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-chart-simple"></i></div>
+                    <h4>Proven Results</h4>
+                    <p>95% of our students show significant grade improvement.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h4>Flexible Scheduling</h4>
+                    <p>Evening and weekend availability to suit your needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" style="margin: 0 auto; text-align: center;">
+                <h2>Find Your Perfect Tutor Today</h2>
+                <p>Get matched with an expert tutor who understands your learning style and goals.</p>
+                <a href="contact.html" class="btn btn-light btn-lg">Request a Tutor</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                 <img src="img/Imperial Logo.png" height="20%">
+                <p>Empowering students through quality education and personalized tutoring services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="tutors.html">Our Tutors</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Subjects</h4>
+                <ul>
+                    <li><a href="#">Mathematics</a></li>
+                    <li><a href="#">Sciences</a></li>
+                    <li><a href="#">Languages</a></li>
+                    <li><a href="#">Computer Science</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Education Street, Gaborone</li>
+                    <li><i class="fas fa-phone"></i> +267 123 4567</li>
+                    <li><i class="fas fa-envelope"></i> info@exceltutors.co.bw</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Excel Tutors. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // Mobile navigation toggle
+    const toggler = document.getElementById('navbarToggler');
+    const navCollapse = document.getElementById('navbarNav');
+    if (toggler && navCollapse) {
+        toggler.addEventListener('click', () => {
+            navCollapse.classList.toggle('show');
+        });
+    }
+    
+    // Back to top button
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backBtn.classList.add('show');
+        } else {
+            backBtn.classList.remove('show');
+        }
+    });
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

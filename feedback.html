@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share your feedback with Emperitus Academy. Rate your experience, leave a testimonial, and help us improve. Your voice matters to us!">
+    <meta name="keywords" content="feedback, testimonial, student review, rating, Emperitus Academy, share experience">
+    <meta name="author" content="Emperitus Academy">
+    <title>Feedback | Emperitus Academy - Share Your Experience</title>
+    
+     <!--Favicon-->
+    <link rel="shortcut icon" href="img/emperitus_Logo.png" type="image/x-icon">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External CSS (No Bootstrap) -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* Additional unique styles for Feedback page */
+        
+        /* Hero Section with Gradient */
+        .feedback-hero {
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            padding: 80px 0 120px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feedback-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .feedback-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 250px;
+            height: 250px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .feedback-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feedback-hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Main Form Container */
+        .form-main-container {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 80px;
+        }
+        
+        .form-wrapper {
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .form-left {
+            flex: 1.2;
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            padding: 2.5rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-left::before {
+            content: '★';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 100px;
+            opacity: 0.1;
+            color: var(--white);
+        }
+        
+        .form-left h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-left p {
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+        }
+        
+        .stat-badge .number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        .stat-badge .text {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .form-right {
+            flex: 2;
+            padding: 2.5rem;
+            background: var(--white);
+        }
+        
+        /* Modern Form Styles */
+        .modern-form .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modern-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+        
+        .modern-form label .required {
+            color: var(--accent);
+            margin-left: 3px;
+        }
+        
+        .modern-form input,
+        .modern-form select,
+        .modern-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            border: 2px solid #e8eef2;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: #fafcfd;
+        }
+        
+        .modern-form input:focus,
+        .modern-form select:focus,
+        .modern-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(242,140,40,0.1);
+        }
+        
+        .modern-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Enhanced Star Rating */
+        .rating-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .rating-section label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .star-rating-modern {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            gap: 8px;
+        }
+        
+        .star-rating-modern input {
+            display: none;
+        }
+        
+        .star-rating-modern label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .star-rating-modern label:hover,
+        .star-rating-modern label:hover ~ label,
+        .star-rating-modern input:checked ~ label {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .rating-feedback-text {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        /* Recommendation Toggle */
+        .recommend-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .recommend-section label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .recommend-toggle {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border: 2px solid #e8eef2;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafcfd;
+        }
+        
+        .toggle-option i {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .toggle-option span {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .toggle-option.selected {
+            border-color: var(--accent);
+            background: rgba(242,140,40,0.1);
+        }
+        
+        .toggle-option[data-value="yes"].selected {
+            border-color: #27AE60;
+            background: rgba(39,174,96,0.1);
+        }
+        
+        .toggle-option[data-value="no"].selected {
+            border-color: #E74C3C;
+            background: rgba(231,76,60,0.1);
+        }
+        
+        /* Consent Checkbox */
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+        
+        .consent-checkbox input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+        
+        .consent-checkbox label {
+            margin: 0;
+            font-weight: normal;
+            font-size: 0.85rem;
+            color: var(--gray);
+            cursor: pointer;
+        }
+        
+        /* Submit Button */
+        .submit-btn-modern {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent), #e07a1a);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(242,140,40,0.3);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        
+        .section-title-modern {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title-modern h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title-modern p {
+            color: var(--gray);
+        }
+        
+        .testimonial-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card-modern {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eef2f6;
+        }
+        
+        .testimonial-card-modern:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text-modern {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author-modern {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eef2f6;
+            padding-top: 1rem;
+        }
+        
+        .author-avatar-modern {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        /* Alert */
+        .alert-modern {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+        
+        @media (max-width: 768px) {
+            .feedback-hero h1 {
+                font-size: 2rem;
+            }
+            .form-left {
+                display: none;
+            }
+            .form-right {
+                padding: 1.5rem;
+            }
+            .star-rating-modern label {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container">
+       <img src="img/emperitus_Logo.png" alt="" height="100">
+        <button class="navbar-toggler" id="navbarToggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="programmes.html">Programmes</a></li>
+                <li class="nav-item"><a class="nav-link" href="fees.html">Fees & Registration</a></li>
+                <li class="nav-item"><a class="nav-link" href="branches.html">Branches</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="feedback-hero">
+    <div class="container">
+        <h1>We Value Your Voice</h1>
+        <p>Your feedback helps us grow and serve you better. Share your honest experience with Emperitus Academy.</p>
+    </div>
+</section>
+
+<!-- Main Form Container -->
+<div class="form-main-container">
+    <div class="container">
+        <div class="form-wrapper">
+            <!-- Left Side - Info Panel -->
+            <div class="form-left">
+                <h3>Why Your Feedback Matters</h3>
+                <p>At Emperitus Academy, every piece of feedback helps us improve our teaching methods, enhance our programmes, and create a better learning environment for all students.</p>
+                <div class="stat-badge">
+                    <div class="number">500+</div>
+                    <div class="text">Happy Students<br>Trusted Us</div>
+                </div>
+                <div class="stat-badge">
+                    <div class="number">98%</div>
+                    <div class="text">Would Recommend<br>Us to Friends</div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Form -->
+            <div class="form-right">
+                <div id="formAlert" class="alert-modern"></div>
+                
+                <form id="feedbackForm" class="modern-form">
+                    <!-- Row 1: Name and Email -->
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <div class="input-group" style="flex: 1;">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" placeholder="Enter your full name">
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" placeholder="your@email.com">
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2: Programme and Tutor -->
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <div class="input-group" style="flex: 1;">
+                            <label>Programme Enrolled <span class="required">*</span></label>
+                            <select id="programme">
+                                <option value="">Select programme</option>
+                                <option value="PSLE Support">PSLE Support</option>
+                                <option value="JCE Support">JCE Support</option>
+                                <option value="BGCSE / IGCSE">BGCSE / IGCSE</option>
+                                <option value="Rewrite Programme">Rewrite Programme</option>
+                                <option value="Breakthrough Programme">Breakthrough Programme</option>
+                                <option value="Primary Tuition">Primary Tuition</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>Tutor's Name <span style="color: #aaa; font-weight: normal;">(Optional)</span></label>
+                            <input type="text" id="tutorName" placeholder="e.g., Dr. Sarah Motswana">
+                        </div>
+                    </div>
+                    
+                    <!-- Rating Section -->
+                    <div class="rating-section">
+                        <label>Rate Your Experience <span class="required">*</span></label>
+                        <div class="star-rating-modern" id="starRating">
+                            <input type="radio" name="rating" id="star5" value="5"><label for="star5"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" id="star4" value="4"><label for="star4"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" id="star3" value="3"><label for="star3"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" id="star2" value="2"><label for="star2"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" id="star1" value="1"><label for="star1"><i class="fas fa-star"></i></label>
+                        </div>
+                        <div class="rating-feedback-text" id="ratingFeedback">Click on a star to rate</div>
+                    </div>
+                    
+                    <!-- Feedback Message -->
+                    <div class="input-group">
+                        <label>Your Feedback <span class="required">*</span></label>
+                        <textarea id="feedbackText" placeholder="Tell us about your experience... What did you like? What could be improved?"></textarea>
+                    </div>
+                    
+                    <!-- Recommendation Section -->
+                    <div class="recommend-section">
+                        <label>Would you recommend us? <span class="required">*</span></label>
+                        <div class="recommend-toggle" id="recommendToggle">
+                            <div class="toggle-option" data-value="yes">
+                                <i class="fas fa-smile-wink"></i>
+                                <span>Yes, Definitely</span>
+                            </div>
+                            <div class="toggle-option" data-value="maybe">
+                                <i class="fas fa-meh"></i>
+                                <span>Not Sure</span>
+                            </div>
+                            <div class="toggle-option" data-value="no">
+                                <i class="fas fa-frown"></i>
+                                <span>No</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="recommend" value="">
+                    </div>
+                    
+                    <!-- Consent Checkbox -->
+                    <div class="consent-checkbox">
+                        <input type="checkbox" id="consent">
+                        <label for="consent">I consent to Emperitus Academy displaying my testimonial anonymously. <span class="required">*</span></label>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn-modern">
+                        <i class="fas fa-paper-plane"></i> Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-title-modern">
+            <h2>What Our Students Say ❤️</h2>
+            <p>Real stories from real learners who trusted Emperitus Academy</p>
+        </div>
+        
+        <div class="testimonial-grid-modern">
+            <div class="testimonial-card-modern">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text-modern">
+                    "The Rewrite Programme gave me a second chance. I went from failing to passing with 4 B's. Forever grateful to the Emperitus team!"
+                </div>
+                <div class="testimonial-author-modern">
+                    <div class="author-avatar-modern">T</div>
+                    <div><strong>Thabo Seboni</strong><br>BGCSE Graduate</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-modern">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text-modern">
+                    "My daughter's confidence in Math has skyrocketed! The personalized attention made all the difference."
+                </div>
+                <div class="testimonial-author-modern">
+                    <div class="author-avatar-modern">M</div>
+                    <div><strong>Mpho Kgosi</strong><br>Parent</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-modern">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text-modern">
+                    "Online tutoring made learning flexible and fun. Improved my English from D to B in one term!"
+                </div>
+                <div class="testimonial-author-modern">
+                    <div class="author-avatar-modern">K</div>
+                    <div><strong>Keitumetse Radibe</strong><br>Form 4 Student</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <img src="img/emperitus_Logo.png" alt="" height="20%">
+                <p>Ever Learning, Ever Growing. Empowering Botswana's students through quality education and personalized tutoring services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programmes.html">Programmes</a></li>
+                    <li><a href="fees.html">Fees & Registration</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Our Programmes</h4>
+                <ul>
+                    <li><a href="programmes.html">PSLE Support</a></li>
+                    <li><a href="programmes.html">JCE Support</a></li>
+                    <li><a href="programmes.html">BGCSE / IGCSE</a></li>
+                    <li><a href="programmes.html">Rewrite Programmes</a></li>
+                    <li><a href="programmes.html">Breakthrough Programme</a></li>
+                    <li><a href="programmes.html">Primary Tuition</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Plot 123, Gaborone, Botswana</li>
+                    <li><i class="fas fa-phone"></i> +267 123 4567</li>
+                    <li><i class="fab fa-whatsapp"></i> +267 765 4321</li>
+                    <li><i class="fas fa-envelope"></i> info@emperitus.ac.bw</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Emperitus Academy. Ever Learning, Ever Growing. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // Mobile navigation toggle
+    const toggler = document.getElementById('navbarToggler');
+    const navCollapse = document.getElementById('navbarNav');
+    if (toggler && navCollapse) {
+        toggler.addEventListener('click', () => {
+            navCollapse.classList.toggle('show');
+        });
+    }
+    
+    // Back to top button
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backBtn.classList.add('show');
+        } else {
+            backBtn.classList.remove('show');
+        }
+    });
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Star rating feedback text
+    const ratingFeedback = {
+        1: '😞 Very Poor - We\'re sorry to hear that',
+        2: '🙁 Below Average - We can do better',
+        3: '😐 Average - Room for improvement',
+        4: '😊 Good - Happy to hear that!',
+        5: '🤩 Excellent! Thank you so much!'
+    };
+    
+    const stars = document.querySelectorAll('input[name="rating"]');
+    const ratingFeedbackDiv = document.getElementById('ratingFeedback');
+    
+    stars.forEach(star => {
+        star.addEventListener('change', function() {
+            if (ratingFeedback[this.value]) {
+                ratingFeedbackDiv.innerHTML = ratingFeedback[this.value];
+            }
+        });
+    });
+    
+    // Recommendation toggle
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+    const recommendInput = document.getElementById('recommend');
+    
+    toggleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            toggleOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            recommendInput.value = this.dataset.value;
+        });
+    });
+    
+    // Form submission
+    const form = document.getElementById('feedbackForm');
+    const alertDiv = document.getElementById('formAlert');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const programme = document.getElementById('programme').value;
+        const rating = document.querySelector('input[name="rating"]:checked');
+        const feedback = document.getElementById('feedbackText').value.trim();
+        const recommend = recommendInput.value;
+        const consent = document.getElementById('consent').checked;
+        
+        if (!fullName) { showAlert('Please enter your full name.', 'danger'); return; }
+        if (!email) { showAlert('Please enter your email address.', 'danger'); return; }
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) { showAlert('Please enter a valid email address.', 'danger'); return; }
+        if (!programme) { showAlert('Please select your programme.', 'danger'); return; }
+        if (!rating) { showAlert('Please rate your experience.', 'danger'); return; }
+        if (!feedback) { showAlert('Please share your feedback.', 'danger'); return; }
+        if (feedback.length < 10) { showAlert('Please provide more detail (at least 10 characters).', 'danger'); return; }
+        if (!recommend) { showAlert('Please tell us if you would recommend us.', 'danger'); return; }
+        if (!consent) { showAlert('Please consent to our testimonial policy.', 'danger'); return; }
+        
+        showAlert('🎉 Thank you for your valuable feedback! We truly appreciate your input.', 'success');
+        form.reset();
+        
+        // Reset UI
+        ratingFeedbackDiv.innerHTML = 'Click on a star to rate';
+        toggleOptions.forEach(opt => opt.classList.remove('selected'));
+        recommendInput.value = '';
+        
+        setTimeout(() => {
+            alertDiv.style.display = 'none';
+        }, 5000);
+    });
+    
+    function showAlert(message, type) {
+        alertDiv.textContent = message;
+        alertDiv.className = `alert-modern alert-${type === 'success' ? 'success' : 'danger'}`;
+        alertDiv.style.display = 'block';
+        
+        if (type === 'success') {
+            setTimeout(() => {
+                alertDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+</script>
+</body>
+</html>

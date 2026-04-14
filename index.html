@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emperitus Academy - Botswana's leading tutoring institution for PSLE, JCE, BGCSE, IGCSE and Rewrite programmes. Empowering students for academic success.">
+    <meta name="keywords" content="Emperitus Academy, tutoring Botswana, BGCSE, JCE, IGCSE, PSLE, rewrite programmes, Gaborone tutoring">
+    <meta name="author" content="Emperitus Academy">
+    <title>Emperitus Academy | Ever Learning, Ever Growing</title>
+    
+    <!--Favicon-->
+    <link rel="shortcut icon" href="img/emperitus_Logo.png" type="image/x-icon">
+    <!-- Bootstrap 5 CSS (Only on Home Page as per requirements) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS for Home Page (Bootstrap + Custom) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Color Variables */
+        :root {
+            --primary-dark: #123C73;
+            --primary-light: #D9EAF7;
+            --accent: #F28C28;
+            --white: #FFFFFF;
+            --dark: #333333;
+            --gray: #666666;
+        }
+        
+        /* Custom Navbar Styling */
+        .navbar {
+            background-color: var(--primary-dark) !important;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white) !important;
+        }
+        
+        .navbar-brand i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent) !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            color: var(--white);
+            padding: 120px 0 80px;
+            margin-top: 56px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero .highlight {
+            color: var(--accent);
+        }
+        
+        .hero .lead {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            background-color: #e07a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: var(--white);
+        }
+        
+        .btn-outline-accent {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-accent:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon i {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Announcement Strip */
+        .announcement {
+            background: var(--primary-light);
+            padding: 12px 0;
+            text-align: center;
+        }
+        
+        .announcement p {
+            margin: 0;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+        
+        .announcement i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        
+        /* Testimonial Carousel */
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 1rem;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .testimonial-rating {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        
+        footer p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        footer h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        footer ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+        }
+        
+        .contact-info li i {
+            width: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top.show {
+            display: flex;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            footer h4 {
+                text-align: center;
+                margin-top: 1.5rem;
+            }
+            footer ul {
+                text-align: center;
+            }
+            .contact-info li {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Bootstrap Navbar) -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <img src="img/emperitus_Logo.png" alt="" height="100">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon" style="background-color: white; border-radius: 3px;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="programmes.html">Programmes</a></li>
+                <li class="nav-item"><a class="nav-link" href="fees.html">Fees & Registration</a></li>
+                <li class="nav-item"><a class="nav-link" href="branches.html">Branches</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Announcement Strip -->
+<div class="announcement">
+    <div class="container">
+        <p><i class="fas fa-bullhorn"></i> 🎓 2026 Registrations Now Open! Limited Spaces Available. Enroll Today! <i class="fas fa-arrow-right"></i></p>
+    </div>
+</div>
+
+<!-- Hero Section with Single Image -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1><span class="highlight">Ever Learning,</span><br>Ever Growing</h1>
+                <p class="lead">Emperitus Academy is Botswana's premier tutoring institution, dedicated to helping students excel in PSLE, JCE, BGCSE, IGCSE and Rewrite Programmes.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="programmes.html" class="btn btn-accent">View Programmes <i class="fas fa-arrow-right"></i></a>
+                    <a href="fees.html" class="btn btn-outline-accent">Register Now</a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img src="img/home.jpg" alt="Students at Emperitus Academy" class="img-fluid rounded-4 shadow" style="height: 280px; object-fit: cover; width: 100%;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Features Section (Bootstrap Cards) -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose Emperitus Academy?</h2>
+            <p class="text-muted">We provide quality education and support for every learner</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Expert Tutors</h3>
+                    <p>Qualified and experienced educators dedicated to your child's academic success.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Exam Preparation</h3>
+                    <p>Specialized programmes for PSLE, JCE, BGCSE, IGCSE and Rewrite examinations.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Modern Resources</h3>
+                    <p>Access to digital learning materials, past papers, and interactive content.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Multiple Branches</h3>
+                    <p>Convenient locations across Botswana including Gaborone, Francistown, and Palapye.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Scholarship Programmes</h3>
+                    <p>Support for underprivileged students to access quality education.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Proven Results</h3>
+                    <p>95% of our students show significant improvement in their grades.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" style="background-color: var(--primary-light);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title" style="margin-bottom: 1.5rem;">About Emperitus Academy</h2>
+                <p>Emperitus Academy was founded to give Botswana students a second chance at academic success. We specialize in helping students who have underperformed in national examinations, as well as primary, junior, and senior learners requiring extra academic support.</p>
+                <p>Our motto, <strong>"Ever Learning, Ever Growing,"</strong> reflects our commitment to continuous improvement and lifelong education.</p>
+                <a href="about.html" class="btn btn-accent mt-2">Learn More About Us <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="col-lg-6">
+                <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded-4 shadow">
+                        <div class="carousel-item active">
+                            <img src="img/1.jpg" class="d-block w-100" alt="Tutor helping student one-on-one" style="height: 320px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/2.jpg" class="d-block w-100" alt="Students in classroom" style="height: 320px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/3.jpg" class="d-block w-100" alt="Graduation ceremony" style="height: 320px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/4.jpg" class="d-block w-100" alt="Students studying together" style="height: 320px; object-fit: cover;">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- Carousel indicators -->
+                <div class="text-center mt-2">
+                    <div class="carousel-indicators position-static mt-2" style="gap: 8px;">
+                        <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0" class="active" style="width: 30px; height: 3px; background: var(--accent); border: none;"></button>
+                        <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="1" style="width: 30px; height: 3px; background: var(--primary-dark); border: none; opacity: 0.5;"></button>
+                        <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="2" style="width: 30px; height: 3px; background: var(--primary-dark); border: none; opacity: 0.5;"></button>
+                        <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="3" style="width: 30px; height: 3px; background: var(--primary-dark); border: none; opacity: 0.5;"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programmes Preview -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Academic Programmes</h2>
+            <p class="text-muted">Comprehensive support for every educational level</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--accent);"><i class="fas fa-book"></i></div>
+                    <h3>PSLE Support</h3>
+                    <p>Primary School Leaving Examination preparation for Standard 7 students.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--accent);"><i class="fas fa-calculator"></i></div>
+                    <h3>JCE Support</h3>
+                    <p>Junior Certificate Examination preparation for Form 3 students.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--accent);"><i class="fas fa-flask"></i></div>
+                    <h3>BGCSE / IGCSE</h3>
+                    <p>Senior secondary exam preparation for Form 5 students.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--accent);"><i class="fas fa-redo-alt"></i></div>
+                    <h3>Rewrite Programmes</h3>
+                    <p>Second chance programmes for students wanting to improve their results.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="programmes.html" class="btn btn-accent">View All Programmes <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Carousel Section -->
+<section class="py-5" style="background-color: var(--primary-light);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What Our Students Say</h2>
+            <p class="text-muted">Success stories from our Emperitus family</p>
+        </div>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial-card" style="max-width: 600px; margin: 0 auto;">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-text">
+                            "Emperitus Academy changed my life! After failing my JCE, I joined their rewrite programme. With dedicated tutors and structured lessons, I passed with flying colors. Thank you!"
+                        </div>
+                        <div class="testimonial-author">- Keitumetse Modise</div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-card" style="max-width: 600px; margin: 0 auto;">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-text">
+                            "My daughter improved from a D to a B in Mathematics within one term. The tutors are patient, knowledgeable, and truly care about student success."
+                        </div>
+                        <div class="testimonial-author">- Mpho Kgosi (Parent)</div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-card" style="max-width: 600px; margin: 0 auto;">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-text">
+                            "The BGCSE preparation programme was intensive but worth it. I scored 5 As thanks to the excellent teaching and resources at Emperitus."
+                        </div>
+                        <div class="testimonial-author">- Thabo Seboni</div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" style="background-color: var(--primary-dark); border-radius: 50%; padding: 20px;"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" style="background-color: var(--primary-dark); border-radius: 50%; padding: 20px;"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5" style="background: linear-gradient(135deg, var(--primary-dark), #1a4a8a); color: var(--white);">
+    <div class="container text-center">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Start Your Journey to Success?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Join hundreds of students who have transformed their academic performance with Emperitus Academy.</p>
+        <a href="fees.html" class="btn btn-accent btn-lg">Register Today <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                 <img src="img/emperitus_Logo.png" alt="" height="20%">
+                <p>Ever Learning, Ever Growing. Empowering Botswana's students through quality education and personalized tutoring services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programmes.html">Programmes</a></li>
+                    <li><a href="fees.html">Fees & Registration</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Our Programmes</h4>
+                <ul>
+                    <li><a href="programmes.html">PSLE Support</a></li>
+                    <li><a href="programmes.html">JCE Support</a></li>
+                    <li><a href="programmes.html">BGCSE / IGCSE</a></li>
+                    <li><a href="programmes.html">Rewrite Programmes</a></li>
+                    <li><a href="programmes.html">Breakthrough Programme</a></li>
+                    <li><a href="programmes.html">Primary Tuition</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Plot 123, Gaborone, Botswana</li>
+                    <li><i class="fas fa-phone"></i> +267 123 4567</li>
+                    <li><i class="fab fa-whatsapp"></i> +267 765 4321</li>
+                    <li><i class="fas fa-envelope"></i> info@emperitus.ac.bw</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Emperitus Academy. Ever Learning, Ever Growing. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS Bundle (Only on Home Page) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    // Back to top button
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backBtn.classList.add('show');
+        } else {
+            backBtn.classList.remove('show');
+        }
+    });
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

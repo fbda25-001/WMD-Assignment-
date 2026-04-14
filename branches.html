@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find Emperitus Academy branches across Botswana. Locations in Gaborone, Francistown, Palapye, Selebi Phikwe, and Mmadinare. Contact details and office hours.">
+    <meta name="keywords" content="branches, locations, Gaborone, Francistown, Palapye, Selebi Phikwe, Mmadinare, Emperitus Academy">
+    <meta name="author" content="Emperitus Academy">
+    <title>Branches | Emperitus Academy - Find a Location Near You</title>
+    
+     <!--Favicon-->
+    <link rel="shortcut icon" href="img/emperitus_Logo.png" type="image/x-icon">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External CSS (No Bootstrap) -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* Additional page-specific styles for Branches page */
+        
+        /* Branch Card Styles */
+        .branch-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .branch-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .branch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .branch-card:hover .branch-image img {
+            transform: scale(1.05);
+        }
+        
+        .branch-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .branch-info {
+            padding: 1.5rem;
+        }
+        
+        .branch-info h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .branch-info h3 i {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+        
+        .branch-details {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .branch-details li {
+            padding: 0.6rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #eee;
+            color: var(--gray);
+        }
+        
+        .branch-details li i {
+            width: 20px;
+            color: var(--accent);
+        }
+        
+        .branch-hours {
+            background: var(--primary-light);
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+        
+        .branch-hours h4 {
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .branch-hours p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        
+        .branch-map {
+            margin-top: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 220px;
+            background: var(--primary-light);
+        }
+        
+        .branch-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .directions-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .directions-link i {
+            margin-right: 5px;
+        }
+        
+        .directions-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+        
+        /* Contact Button */
+        .branch-contact-btn {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .branch-contact-btn i {
+            margin-right: 8px;
+        }
+        
+        .branch-contact-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Branch Stats */
+        .branch-stats {
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a8a);
+            padding: 60px 0;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* CTA for Nearest Branch */
+        .nearest-branch {
+            background: var(--primary-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .nearest-branch h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .find-location-btn {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .find-location-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 90%;
+            width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 1rem;
+        }
+        
+        .modal-body iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .modal-directions {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .modal-directions a {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-directions a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Pure CSS) -->
+<nav class="navbar">
+    <div class="container">
+       <img src="img/emperitus_Logo.png" alt="" height="100">
+        <button class="navbar-toggler" id="navbarToggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="programmes.html">Programmes</a></li>
+                <li class="nav-item"><a class="nav-link" href="fees.html">Fees & Registration</a></li>
+                <li class="nav-item"><a class="nav-link active" href="branches.html">Branches</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Our Branches</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Branches</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Branches Introduction -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Find a Location Near You</h2>
+            <p>Emperitus Academy has branches across Botswana to serve you better</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="story-content text-center" style="max-width: 800px; margin: 0 auto;">
+                    <p>With multiple branches across Botswana, Emperitus Academy brings quality education closer to you. Each branch is equipped with modern facilities, experienced tutors, and a conducive learning environment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Branch Stats -->
+<section class="branch-stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Branches Nationwide</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <div class="stat-number">2,000+</div>
+                    <div class="stat-label">Students Enrolled</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Tutors Across Branches</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Branches Grid Section (Based on Documentation) -->
+<section class="py-5" style="background-color: var(--primary-light);">
+    <div class="container">
+        <div class="row">
+            <!-- Gaborone Branch (Head Office) -->
+            <div class="col-lg-6">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="img/gaborone.webp" alt="Gaborone Branch - Emperitus Academy Head Office">
+                        <span class="branch-badge">Head Office</span>
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-building"></i> Gaborone</h3>
+                        <ul class="branch-details">
+                            <li><i class="fas fa-map-marker-alt"></i> Plot 123, Independence Avenue, Gaborone Central Business District</li>
+                            <li><i class="fas fa-phone"></i> +267 123 4567</li>
+                            <li><i class="fas fa-envelope"></i> gaborone@emperitus.ac.bw</li>
+                        </ul>
+                        <div class="branch-hours">
+                            <h4><i class="fas fa-clock"></i> Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+                            <p>Saturday: 9:00 AM - 5:00 PM</p>
+                            <p>Sunday: 10:00 AM - 2:00 PM</p>
+                        </div>
+                        <!-- Embedded Google Map for Gaborone -->
+                        <div class="branch-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.656853855069!2d25.89031187521733!3d-24.669937078054147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebb5ba78b26b5c3%3A0x1ea941756cc2c961!2sEmperitus%20Academy%20-%20Gaborone!5e0!3m2!1sen!2sbw!4v1775377401328!5m2!1sen!2sbw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Emperitus+Academy+Gaborone" target="_blank" class="directions-link"><i class="fas fa-directions"></i> Get Directions (Open Google Maps)</a>
+                        <div>
+                            <a href="contact.html" class="branch-contact-btn"><i class="fab fa-whatsapp"></i> Contact This Branch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Francistown Branch -->
+            <div class="col-lg-6">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="img/ghetto.jpg" alt="Francistown Branch">
+                        <span class="branch-badge">Major Branch</span>
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-city"></i> Francistown</h3>
+                        <ul class="branch-details">
+                            <li><i class="fas fa-map-marker-alt"></i> Plot 456, Blue Jacket Street, Francistown</li>
+                            <li><i class="fas fa-phone"></i> +267 234 5678</li>
+                            <li><i class="fas fa-envelope"></i> francistown@emperitus.ac.bw</li>
+                        </ul>
+                        <div class="branch-hours">
+                            <h4><i class="fas fa-clock"></i> Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+                            <p>Saturday: 9:00 AM - 5:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                        <div class="branch-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.5!2d27.5!3d-21.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eaf3d7b5a5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sFrancistown%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1700000000000!5m2!1sen!2sbw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Francistown+Botswana" target="_blank" class="directions-link"><i class="fas fa-directions"></i> Get Directions (Open Google Maps)</a>
+                        <div>
+                            <a href="contact.html" class="branch-contact-btn"><i class="fab fa-whatsapp"></i> Contact This Branch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Palapye Branch -->
+            <div class="col-lg-6">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="img/py.jpg" alt="Palapye Branch">
+                        <span class="branch-badge">Major Branch</span>
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-tree"></i> Palapye</h3>
+                        <ul class="branch-details">
+                            <li><i class="fas fa-map-marker-alt"></i> Plot 789, Main Road, Palapye Central</li>
+                            <li><i class="fas fa-phone"></i> +267 345 6789</li>
+                            <li><i class="fas fa-envelope"></i> palapye@emperitus.ac.bw</li>
+                        </ul>
+                        <div class="branch-hours">
+                            <h4><i class="fas fa-clock"></i> Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 7:00 PM</p>
+                            <p>Saturday: 9:00 AM - 4:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                        <div class="branch-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=1m18!1m12!1m3!1d3660!2d27.12!3d-22.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eaf3d7b5a5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sPalapye%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1700000000000!5m2!1sen!2sbw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Palapye+Botswana" target="_blank" class="directions-link"><i class="fas fa-directions"></i> Get Directions (Open Google Maps)</a>
+                        <div>
+                            <a href="contact.html" class="branch-contact-btn"><i class="fab fa-whatsapp"></i> Contact This Branch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Selebi Phikwe Branch -->
+            <div class="col-lg-6">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="img/phikwe.jpg" alt="Selebi Phikwe Branch">
+                        <span class="branch-badge">Regional Branch</span>
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hard-hat"></i> Selebi Phikwe</h3>
+                        <ul class="branch-details">
+                            <li><i class="fas fa-map-marker-alt"></i> Plot 321, Phikwe Commercial Area, Selebi Phikwe</li>
+                            <li><i class="fas fa-phone"></i> +267 456 7890</li>
+                            <li><i class="fas fa-envelope"></i> selbiphikwe@emperitus.ac.bw</li>
+                        </ul>
+                        <div class="branch-hours">
+                            <h4><i class="fas fa-clock"></i> Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                            <p>Saturday: 9:00 AM - 3:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                        <div class="branch-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=1m18!1m12!1m3!1d3655!2d27.85!3d-21.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eaf3d7b5a5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sSelebi-Phikwe%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1700000000000!5m2!1sen!2sbw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Selebi+Phikwe+Botswana" target="_blank" class="directions-link"><i class="fas fa-directions"></i> Get Directions (Open Google Maps)</a>
+                        <div>
+                            <a href="contact.html" class="branch-contact-btn"><i class="fab fa-whatsapp"></i> Contact This Branch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mmadinare Branch -->
+            <div class="col-lg-12" style="margin-top: 0;">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="img/mmadinare.jpg" alt="Mmadinare Branch">
+                        <span class="branch-badge">Community Branch</span>
+                    </div>
+                    <div class="branch-info">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3><i class="fas fa-school"></i> Mmadinare</h3>
+                                <ul class="branch-details">
+                                    <li><i class="fas fa-map-marker-alt"></i> Plot 654, Mmadinare Village Center, Near Kgosi's Office</li>
+                                    <li><i class="fas fa-phone"></i> +267 567 8901</li>
+                                    <li><i class="fas fa-envelope"></i> mmadinare@emperitus.ac.bw</li>
+                                </ul>
+                                <div class="branch-hours">
+                                    <h4><i class="fas fa-clock"></i> Office Hours</h4>
+                                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                                <a href="contact.html" class="branch-contact-btn"><i class="fab fa-whatsapp"></i> Contact This Branch</a>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="branch-map" style="height: 220px;">
+                                    <iframe src="https://www.google.com/maps/embed?pb=1m18!1m12!1m3!1d3650!2d27.6!3d-21.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eaf3d7b5a5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sMmadinare%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1700000000000!5m2!1sen!2sbw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Mmadinare+Botswana" target="_blank" class="directions-link"><i class="fas fa-directions"></i> Get Directions (Open Google Maps)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Find Nearest Branch Section -->
+<section class="nearest-branch">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3><i class="fas fa-location-dot" style="color: var(--accent);"></i> Find the Branch Nearest to You</h3>
+                <p>Enter your location or allow us to detect your location to find the closest Emperitus Academy branch.</p>
+                <button class="find-location-btn" onclick="findNearestBranch()"><i class="fas fa-map-marker-alt"></i> Detect My Location</button>
+                <div id="locationResult" style="margin-top: 1rem; color: var(--primary-dark); font-weight: 500;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Our Branches Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Why Visit Our Branches?</h2>
+            <p>Each branch offers the same quality education and support</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chalkboard"></i></div>
+                    <h3>Modern Classrooms</h3>
+                    <p>All branches are equipped with air-conditioned classrooms and modern teaching aids.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Computer Labs</h3>
+                    <p>Access to computers for IT classes and research at all major branches.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>Resource Libraries</h3>
+                    <p>Study materials, past papers, and reference books available at each location.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" style="margin: 0 auto; text-align: center;">
+                <h2>Visit Us Today!</h2>
+                <p>Come to any of our branches for a free consultation and tour of our facilities.</p>
+                <a href="contact.html" class="btn btn-accent btn-lg">Book a Visit <i class="fas fa-calendar-alt"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+               <img src="img/emperitus_Logo.png" alt="" height="20%">
+                <p>Ever Learning, Ever Growing. Empowering Botswana's students through quality education and personalized tutoring services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programmes.html">Programmes</a></li>
+                    <li><a href="fees.html">Fees & Registration</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Our Programmes</h4>
+                <ul>
+                    <li><a href="programmes.html">PSLE Support</a></li>
+                    <li><a href="programmes.html">JCE Support</a></li>
+                    <li><a href="programmes.html">BGCSE / IGCSE</a></li>
+                    <li><a href="programmes.html">Rewrite Programmes</a></li>
+                    <li><a href="programmes.html">Breakthrough Programme</a></li>
+                    <li><a href="programmes.html">Primary Tuition</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Plot 123, Gaborone, Botswana</li>
+                    <li><i class="fas fa-phone"></i> +267 123 4567</li>
+                    <li><i class="fab fa-whatsapp"></i> +267 765 4321</li>
+                    <li><i class="fas fa-envelope"></i> info@emperitus.ac.bw</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Emperitus Academy. Ever Learning, Ever Growing. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- JavaScript -->
+<script>
+    // Mobile navigation toggle
+    const toggler = document.getElementById('navbarToggler');
+    const navCollapse = document.getElementById('navbarNav');
+    if (toggler && navCollapse) {
+        toggler.addEventListener('click', () => {
+            navCollapse.classList.toggle('show');
+        });
+    }
+    
+    // Back to top button
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backBtn.classList.add('show');
+        } else {
+            backBtn.classList.remove('show');
+        }
+    });
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Find Nearest Branch
+    function findNearestBranch() {
+        const resultDiv = document.getElementById('locationResult');
+        resultDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detecting your location...';
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    resultDiv.innerHTML = '<i class="fas fa-check-circle" style="color: var(--accent);"></i> Based on your location, the closest branch is <strong>Gaborone</strong> (approximately 2.5 km away). <a href="https://www.google.com/maps/dir/?api=1&destination=Emperitus+Academy+Gaborone" target="_blank" style="color: var(--accent);">Click here for directions →</a>';
+                },
+                function(error) {
+                    resultDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Unable to detect location. Please contact us directly to find your nearest branch.';
+                }
+            );
+        } else {
+            resultDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Geolocation is not supported by your browser. Please call +267 123 4567 for branch information.';
+        }
+    }
+</script>
+</body>
+</html>
